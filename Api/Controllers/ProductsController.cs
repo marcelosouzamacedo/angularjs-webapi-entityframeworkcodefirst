@@ -12,21 +12,15 @@ using Api.Models;
 
 namespace Api.Controllers
 {
-    public class CategoriesController : ApiController
+    public class ProductsController : ApiController
     {
         private ShoppingCartContext db = new ShoppingCartContext();
 
-        // GET: api/Categories
-        public IQueryable<Category> GetRootCategories()
+        // GET api/Category/5/Products
+        [Route("api/Category/{id}/Products")]
+        public IQueryable<Product> GetProducts(int id)
         {
-            return db.Categories.Where(c => c.Parent == null);
-        }
-
-        // GET api/Category/5/Categories
-        [Route("api/Category/{id}/Categories")]
-        public IQueryable<Category> GetChildren(int id)
-        {
-            return db.Categories.Where(c => c.Parent.Id == id);
+            return db.Products.Where(p => p.Categories.All(c => new[] { id }.Contains(c.Id)));
         }
 
         protected override void Dispose(bool disposing)

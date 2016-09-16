@@ -1,0 +1,15 @@
+﻿<div class="modal-header">
+    <h3 class="modal-title" id="modal-title">Detalhes do Produto</h3>
+</div>
+<div class="modal-body" id="modal-body">
+    <h4>{{cart.selectedProduct.Name}}</h4>
+    <div class="text-center" style="background-color: white;">
+        <img style="height: 250px;" ng-src="{{cart.selectedProduct.ImageUrl}}" alt="{{cart.selectedProduct.Name}}">
+    </div>
+    <p>{{cart.selectedProduct.Info}}</p>
+    <h4><span class="label label-success">{{cart.selectedProduct.Price | currency : "R$ "}}</span></h4>
+</div>
+<div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$close(true)">Adicionar ao Carrinho</button>
+    <button class="btn btn-warning" type="button" ng-click="$close(false)">Cancelar</button>
+</div>

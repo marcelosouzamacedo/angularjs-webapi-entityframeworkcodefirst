@@ -2,5 +2,5 @@
     "use strict";
 
     angular
-      .module("shoppingCart", []);
+      .module("shoppingCart", ["ui.bootstrap"]);
 })();

@@ -67,7 +67,7 @@ namespace Api.Controllers
                     Name = "Bolsa Evoc Courier",
                     ImageUrl = "http://images.americanas.io/produtos/01/00/sku/11450/8/11450832G1.jpg",
                     Info = @"Bolsa Estilo Escritório Espaçosa E Construída Para Uso Pesado.",
-                    Price = 12.90m
+                    Price = 549.00m
                 };
                 ctx.Products.Add(capaGame);
                 var caseParaNotebook = new Product()
@@ -75,7 +75,7 @@ namespace Api.Controllers
                     Name = "Case Para Notebook Sestini Arapongas 12",
                     ImageUrl = "http://images.americanas.io/produtos/01/00/sku/13546/4/13546437G1.jpg",
                     Info = @"O Case Para Notebook Sestini Arapongas 12 É Desenvolvido Em Neopreme Que É Composto De Borracha Que Oferece Excelente Proteção. O Case Para Notebook Sestini Arapongas 12  É Perfeito Para Agregar Segurança E Estilo. Dimensão : Para Laptop 12.",
-                    Price = 12.90m
+                    Price = 41.88m
                 };
                 ctx.Products.Add(capaGame);
                 var masculino = new Category() { Name = "masculino", Parent = moda, Products = new[] { capaGame, bolsaEvoc, caseParaNotebook } };

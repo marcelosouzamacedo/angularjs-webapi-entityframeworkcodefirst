@@ -16,26 +16,26 @@
         return service;
 
         function getCategories(parentCategory) {
-            var address = "/api/categories/";
-            if (parentCategory != null && parentCategory.id)
-                address = address + parentCategory.id;
+            var address = "/api/categories";
+            if (parentCategory != null && parentCategory.Id)
+                address = "/api/category/" + parentCategory.Id + "/categories";
 
             return $http.get(address)
               .then(getCategoriesComplete);
 
-            function getCategoriesComplete(data) {
-                return data;
+            function getCategoriesComplete(response) {
+                return response.data;
             }
         }
 
         function getProducts(category) {
-            var address = "/api/products/" + category.id;
+            var address = "/api/category/" + category.Id + "/products";
 
             return $http.get(address)
                 .then(getProductsComplete);
 
-            function getProductsComplete(data) {
-                return data;
+            function getProductsComplete(response) {
+                return response.data;
             }
         }
     }
