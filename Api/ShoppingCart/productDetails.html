@@ -7,9 +7,10 @@
         <img style="height: 250px;" ng-src="{{cart.selectedProduct.ImageUrl}}" alt="{{cart.selectedProduct.Name}}">
     </div>
     <p>{{cart.selectedProduct.Info}}</p>
-    <h4><span class="label label-success">{{cart.selectedProduct.Price | currency : "R$ "}}</span></h4>
+    <h4 ng-if="cart.selectedProductStillHasStock()"><span class="label label-success">{{cart.selectedProduct.Price | currency : "R$ "}}</span></h4>
+    <h4 ng-if="!cart.selectedProductStillHasStock()"><span class="label label-danger">Estoque esgotado</span></h4>
 </div>
 <div class="modal-footer">
-    <button class="btn btn-primary" type="button" ng-click="$close(true)">Adicionar ao Carrinho</button>
+    <button class="btn btn-primary" type="button" ng-disabled="!cart.selectedProductStillHasStock()" ng-click="$close(true)">Adicionar ao Carrinho</button>
     <button class="btn btn-warning" type="button" ng-click="$close(false)">Cancelar</button>
 </div>

@@ -110,6 +110,10 @@
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
+    <Content Include="Orders\orders.directive.js" />
+    <Content Include="Orders\orders.module.js" />
+    <Content Include="Orders\orders.service.js" />
+    <Content Include="Orders\orders.controller.js" />
     <Content Include="Scripts\angular-mocks.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.js" />
     <Content Include="Scripts\angular-ui\ui-bootstrap-tpls.min.js" />
@@ -131,12 +135,14 @@
     <Content Include="Scripts\extensions.date.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="Orders\orders.directive.html" />
     <Content Include="ShoppingCart\cartItems.directive.html" />
     <Content Include="ShoppingCart\cartItems.directive.js" />
     <Content Include="ShoppingCart\categories.directive.html" />
     <Content Include="ShoppingCart\categories.directive.js" />
     <Content Include="ShoppingCart\delivery.directive.html" />
     <Content Include="ShoppingCart\delivery.directive.js" />
+    <Content Include="Orders\index.html" />
     <Content Include="ShoppingCart\newOrder.html" />
     <Content Include="ShoppingCart\productDetails.html" />
     <Content Include="ShoppingCart\purchaseSummary.directive.html" />
@@ -158,11 +164,14 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\CategoriesController.cs" />
     <Compile Include="Controllers\DummyDataController.cs" />
+    <Compile Include="Controllers\OrdersController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\OrderItem.cs" />
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShoppingCartContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

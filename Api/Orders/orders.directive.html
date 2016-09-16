@@ -1,0 +1,27 @@
+﻿<div class="panel panel-success showcase">
+    <div class="panel-heading">
+        <h3 class="panel-title">Compras</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-striped table-hover shopping-cart">
+            <thead>
+                <tr>
+                    <th>Id</th>
+                    <td>Data da Entrega</td>
+                    <th>Opção de Entrega</th>
+                    <th class="text-right">Total da Compra</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="order in ord.orders track by order.Id">
+                    <td>{{order.Id}}</td>
+                    <td>{{order.DeliveryDate | date : "dd/MM/yyyy"}}</td>
+                    <td>{{ord.describeDeliveryOption(order.DeliveryOption)}}</td>
+                    <td class="text-right">{{order.TotalValue | currency : "R$ "}}</td>
+                    <td class="text-right"><button type="button" class="btn btn-default btn-xs" ng-click="ord.removeOrder(order)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

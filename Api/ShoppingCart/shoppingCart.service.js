@@ -9,11 +9,27 @@
 
     function shoppingCart($http) {
         var service = {
+            checkOut: checkOut,
             getCategories: getCategories,
             getProducts: getProducts
         };
 
         return service;
+
+        function checkOut(order) {
+            var address = "/api/orders";
+
+            return $http.post(address, order)
+                .then(checkOutComplete, checkoutError);
+
+            function checkOutComplete(response) {
+                return response.status;
+            }
+
+            function checkoutError(response) {
+                console.log(response);
+            }
+        }
 
         function getCategories(parentCategory) {
             var address = "/api/categories";

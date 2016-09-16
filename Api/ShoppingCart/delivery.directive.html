@@ -20,7 +20,7 @@
             <input type="text" class="form-control" min="new Date()" id="deliveryAddressInput" ng-model="cart.deliveryAddress" />
         </div>
         <div class="form-group" ng-show="cart.deliveryOption">
-            <button type="button" ng-disabled="!cart.isValidToCheckOut()" class="btn btn-primary btn-lg" style="width: 100%">Finalizar Compra</button>
+            <button type="button" ng-disabled="!cart.isValidToCheckOut()" ng-click="cart.checkOut()" class="btn btn-primary btn-lg" style="width: 100%">Finalizar Compra</button>
         </div>
     </div>
 </div>
