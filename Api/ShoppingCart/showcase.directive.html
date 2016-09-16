@@ -1,0 +1,14 @@
+﻿<div class="panel panel-primary showcase">
+    <div class="panel-heading">
+        <h3 class="panel-title">Vitrine</h3>
+    </div>
+    <div class="panel-body">
+        <div class="product" ng-repeat="product in cart.products track by product.Id">
+            <img class="" ng-src="{{product.ImageUrl}}" alt="{{product.Name}}">
+            <div class="">
+                <p>{{product.Name}}</p>
+                <button class="btn btn-primary btn-lg" ng-click="cart.viewProductDetails(product)">Ver detalhes</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,7 @@
+﻿<div class="form-group">
+    <label for="categoryInput">Categoria</label>
+    <select class="form-control" id="categoryInput" ng-model="cart.selectedCategory"
+            ng-options="category.Name for category in cart.categories track by category.Id">
+        <option value="">Selecione uma Categoria</option>
+    </select>
+</div>

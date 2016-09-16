@@ -106,6 +106,7 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\site.css" />
     <Content Include="Content\ui-bootstrap-csp.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -129,14 +130,22 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
+    <Content Include="ShoppingCart\cartItems.directive.html" />
+    <Content Include="ShoppingCart\cartItems.directive.js" />
+    <Content Include="ShoppingCart\categories.directive.html" />
+    <Content Include="ShoppingCart\categories.directive.js" />
     <Content Include="ShoppingCart\newOrder.html" />
     <Content Include="ShoppingCart\productDetails.html" />
     <Content Include="ShoppingCart\ShoppingCart.controller.js" />
     <Content Include="ShoppingCart\shoppingCart.module.js" />
     <Content Include="Scripts\angular.min.js.map" />
     <Content Include="Scripts\jquery-1.9.1.min.map" />
+    <Content Include="ShoppingCart\showcase.directive.js" />
     <None Include="ShoppingCart\_references.js" />
     <Content Include="ShoppingCart\shoppingCart.service.js" />
+    <Content Include="ShoppingCart\showcase.directive.html" />
+    <Content Include="ShoppingCart\subcategories.directive.html" />
+    <Content Include="ShoppingCart\subcategories.directive.js" />
     <Content Include="ShoppingCart\uib\template\modal\window.html" />
     <Content Include="Web.config" />
   </ItemGroup>

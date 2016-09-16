@@ -4,62 +4,25 @@
     <title>Nova Compra</title>
 
     <link href="https://bootswatch.com/superhero/bootstrap.css" rel="stylesheet" />
-
-    <!--
-    <link href="../Content/bootstrap-slate.min.css" rel="stylesheet" />
-    <link href="https://bootswatch.com/cyborg/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/superhero/bootstrap.min.css" rel="stylesheet"/>
-
-    <link href="https://bootswatch.com/cosmo/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/darkly/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/flatly/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/paper/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/slate/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/spacelab/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/yeti/bootstrap.min.css" rel="stylesheet"/>
-    <link href="https://bootswatch.com/united/bootstrap.min.css" rel="stylesheet"/>
-    -->
+    <link href="../Content/site.css" rel="stylesheet"/>
 
     <script src="../Scripts/angular.min.js"></script>
     <script src="../Scripts/angular-ui/ui-bootstrap.min.js"></script>
     <script src="shoppingCart.module.js"></script>
     <script src="shoppingCart.service.js"></script>
     <script src="ShoppingCart.controller.js"></script>
+    <script src="categories.directive.js"></script>
+    <script src="subcategories.directive.js"></script>
+    <script src="showcase.directive.js"></script>
+    <script src="cartItems.directive.js"></script>
 
-    <style>
-        .showcase {
-            overflow: auto;
-        }
-
-            .showcase .product {
-                padding: 2px;
-                border: solid 1px;
-                float: left;
-                width: 256px;
-                margin: 18px 0px 18px 18px;
-            }
-
-                .showcase .product p {
-                    height: 55px;
-                }
-
-                .showcase .product img {
-                    background-color: white;
-                    width: 250px;
-                }
-
-                .showcase .product button {
-                    width: 100%;
-                }
-    </style>
     <meta charset="utf-8" />
 </head>
 <body ng-app="shoppingCart">
     <form>
         <div ng-controller="ShoppingCartController as cart" class="container">
             <div class="row jumbotron">
-                <h1>Nova Compra</h1>
+                <h2>Nova Compra</h2>
                 <ul>
                     <li>Escolha a categoria do seu produto</li>
                     <li>Logo em seguida, escolha a sub-categoria</li>
@@ -68,69 +31,25 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="categoryInput">Categoria</label>
-                        <select class="form-control" id="categoryInput" ng-model="cart.selectedCategory"
-                                ng-options="category.Name for category in cart.categories track by category.Id">
-                            <option value="">Selecione uma Categoria</option>
-                        </select>
-                    </div>
+                    <categories></categories>
                 </div>
                 <div class="col-md-6">
-                    <div class="form-group">
-                        <label for="subCategoryInput">Subcategoria</label>
-                        <select ng-disabled="cart.disableSubCategories()" class="form-control" id="subCategoryInput" ng-model="cart.selectedSubCategory"
-                                ng-options="subCategory.Name for subCategory in cart.subCategories track by subCategory.Id">
-                            <option value="">{{cart.selectSubCategoryDefaultText}}</option>
-                        </select>
-                    </div>
+                    <subcategories></subcategories>
                 </div>
             </div>
             <div class="row" ng-show="cart.selectedSubCategory.Id > 0">
                 <div class="col-md-12">
-                    <div class="panel panel-primary showcase">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Vitrine</h3>
-                        </div>
-                        <div class="panel-body">
-                            <div class="product" ng-repeat="product in cart.products track by product.Id">
-                                <img class="" ng-src="{{product.ImageUrl}}" alt="{{product.Name}}">
-                                <div class="">
-                                    <p>{{product.Name}}</p>
-                                    <button class="btn btn-primary btn-lg" ng-click="cart.viewProductDetails(product)">Ver detalhes</button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    <showcase></showcase>
                 </div>
             </div>
             <div class="row" ng-show="cart.shoppingCart.length > 0">
                 <div class="col-md-12">
-                    <div class="panel panel-success showcase">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">Carrinho</h3>
-                        </div>
-                        <div class="panel-body">
-                            <table class="table table-striped table-hover shopping-cart">
-                                <thead>
-                                    <tr>
-                                        <th style="width: 50%">Produto</th>
-                                        <th>Quantidade</th>
-                                        <th class="text-right">Valor</th>
-                                        <th></th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr ng-repeat="item in cart.shoppingCart track by item.Id">
-                                        <td>{{item.Name}}</td>
-                                        <td><input type="number" min="1" ng-model="item.Quantity" /></td>
-                                        <td class="text-right">{{item.Price | currency : "R$ "}}</td>
-                                        <td><button type="button" class="btn btn-default btn-xs" ng-click="cart.removeFromCart(item)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
+                    <cart-items></cart-items>
+                </div>
+            </div>
+            <div class="row" ng-show="cart.shoppingCart.length > 0">
+                <div class="col-md-6">
+                    <purchase-summary></purchase-summary>
                 </div>
             </div>
         </div>

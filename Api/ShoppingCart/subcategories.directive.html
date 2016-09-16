@@ -1,0 +1,7 @@
+﻿<div class="form-group">
+    <label for="subCategoryInput">Subcategoria</label>
+    <select ng-disabled="cart.disableSubCategories()" class="form-control" id="subCategoryInput" ng-model="cart.selectedSubCategory"
+            ng-options="subCategory.Name for subCategory in cart.subCategories track by subCategory.Id">
+        <option value="">{{cart.selectSubCategoryDefaultText}}</option>
+    </select>
+</div>
