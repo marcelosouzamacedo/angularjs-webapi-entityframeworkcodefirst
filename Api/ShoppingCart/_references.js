@@ -7,6 +7,7 @@
 /// <reference path="../scripts/jquery-1.9.1.min.js" />
 /// <reference path="cartitems.directive.js" />
 /// <reference path="categories.directive.js" />
+/// <reference path="purchasesummary.directive.js" />
 /// <reference path="shoppingcart.controller.js" />
 /// <reference path="shoppingcart.module.js" />
 /// <reference path="shoppingcart.service.js" />

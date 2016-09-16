@@ -19,6 +19,8 @@
         vm.selectedSubCategory = {};
         vm.shoppingCart = [];
         vm.subCategories = [];
+        vm.sumCartItemsPrices = sumCartItemsPrices;
+        vm.sumCartItemsQuantities = sumCartItemsQuantities;
         vm.viewProductDetails = viewProductDetails;
 
         $scope.$watch(function () { return vm.selectedCategory; }, updateSubCategories);
@@ -64,6 +66,22 @@
                     return;
                 }
             }
+        }
+
+        function sumCartItemsQuantities() {
+            var sum = 0;
+            for (var i = 0; i < vm.shoppingCart.length; i++) {
+                sum += vm.shoppingCart[i].Quantity;
+            }
+            return sum;
+        }
+
+        function sumCartItemsPrices() {
+            var sum = 0;
+            for (var i = 0; i < vm.shoppingCart.length; i++) {
+                sum += vm.shoppingCart[i].Price * vm.shoppingCart[i].Quantity;
+            }
+            return sum;
         }
 
         function updateProducts(value) {

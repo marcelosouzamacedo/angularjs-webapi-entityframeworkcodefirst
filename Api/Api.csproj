@@ -136,6 +136,8 @@
     <Content Include="ShoppingCart\categories.directive.js" />
     <Content Include="ShoppingCart\newOrder.html" />
     <Content Include="ShoppingCart\productDetails.html" />
+    <Content Include="ShoppingCart\purchaseSummary.directive.html" />
+    <Content Include="ShoppingCart\purchaseSummary.directive.js" />
     <Content Include="ShoppingCart\ShoppingCart.controller.js" />
     <Content Include="ShoppingCart\shoppingCart.module.js" />
     <Content Include="Scripts\angular.min.js.map" />

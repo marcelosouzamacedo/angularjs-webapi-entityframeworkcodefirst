@@ -1,0 +1,12 @@
+﻿<div class="panel panel-warning showcase">
+    <div class="panel-heading">
+        <h3 class="panel-title">Resumo da Compra</h3>
+    </div>
+    <div class="panel-body">
+        <span>Total de Itens: {{cart.sumCartItemsQuantities()}}</span>
+        <span class="pull-right">Valor Total: {{cart.sumCartItemsPrices() | currency : "R$ "}}</span>
+        <div style="font-size: 0.8em; border-top: solid white 1px; margin-top: 10px; padding-top: 10px;">
+            <p ng-repeat="item in cart.shoppingCart track by item.Id">{{item.Name}} - <span style="white-space: nowrap">{{item.Price | currency : "R$ "}} (unitário)</span> - <span style="white-space: nowrap">{{(item.Quantity * item.Price) | currency : "R$ "}} (total)</span></p>
+        </div>
+    </div>
+</div>

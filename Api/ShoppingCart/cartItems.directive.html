@@ -8,7 +8,8 @@
                 <tr>
                     <th style="width: 50%">Produto</th>
                     <th>Quantidade</th>
-                    <th class="text-right">Valor</th>
+                    <th class="text-right">Valor Unitário</th>
+                    <th class="text-right">Valor Total</th>
                     <th></th>
                 </tr>
             </thead>
@@ -17,6 +18,7 @@
                     <td>{{item.Name}}</td>
                     <td><input type="number" min="1" ng-model="item.Quantity" /></td>
                     <td class="text-right">{{item.Price | currency : "R$ "}}</td>
+                    <th class="text-right">{{(item.Quantity * item.Price) | currency : "R$ "}}</th>
                     <td><button type="button" class="btn btn-default btn-xs" ng-click="cart.removeFromCart(item)"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></button></td>
                 </tr>
             </tbody>
