@@ -13,6 +13,7 @@
         vm.categories = [];
         vm.disableSubCategories = disableSubCategories;
         vm.products = [];
+        vm.removeFromCart = removeFromCart;
         vm.selectedCategory = {};
         vm.selectedProduct = {};
         vm.selectedSubCategory = {};
@@ -56,28 +57,22 @@
               });
         }
 
-        function viewProductDetails(product) {
-            vm.selectedProduct = product;
-            var modalInstance = $uibModal.open({
-                ariaLabelledBy: "modal-title",
-                ariaDescribedBy: "modal-body",
-                templateUrl: "/ShoppingCart/productDetails.html",
-                controller: "ShoppingCartController",
-                scope: $scope,
-                resolve: {
-                    product: function() {
-                        return $scope.cart.selectedProduct;
-                    }
+        function removeFromCart(item) {
+            for (var i = 0; i < vm.shoppingCart.length; i++) {
+                if (vm.shoppingCart[i].Id === item.Id) {
+                    vm.shoppingCart.splice(i, 1);
+                    return;
                 }
-            });
+            }
+        }
 
-            modalInstance.result.then(function (added) {
-                if (added) {
-                    var cartItem = vm.selectedProduct;
-                    cartItem.Quantity = 1;
-                    vm.shoppingCart.push(cartItem);
-                }
-            });
+        function updateProducts(value) {
+            if (value != null && value.Id > 0) {
+                vm.products = listProducts();
+            }
+            else {
+                vm.products = [];
+            }
         }
 
         function updateSubCategories(value) {
@@ -93,13 +88,34 @@
             }
         }
 
-        function updateProducts(value) {
-            if (value != null && value.Id > 0) {
-                vm.products = listProducts();
-            }
-            else {
-                vm.products = [];
-            }
+        function viewProductDetails(product) {
+            vm.selectedProduct = product;
+            var modalInstance = $uibModal.open({
+                ariaLabelledBy: "modal-title",
+                ariaDescribedBy: "modal-body",
+                templateUrl: "/ShoppingCart/productDetails.html",
+                controller: "ShoppingCartController",
+                scope: $scope,
+                resolve: {
+                    product: function () {
+                        return $scope.cart.selectedProduct;
+                    }
+                }
+            });
+
+            modalInstance.result.then(function (added) {
+                if (added) {
+                    for (var i = 0; i < vm.shoppingCart.length; i++) {
+                        if (vm.shoppingCart[i].Id === vm.selectedProduct.Id) {
+                            vm.shoppingCart[i].Quantity++;
+                            return;
+                        }
+                    }
+                    var cartItem = vm.selectedProduct;
+                    cartItem.Quantity = 1;
+                    vm.shoppingCart.push(cartItem);
+                }
+            });
         }
     }
 })();
