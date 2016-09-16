@@ -128,12 +128,15 @@
     <None Include="Scripts\jquery-1.9.1.intellisense.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\extensions.date.js" />
     <Content Include="Scripts\jquery-1.9.1.js" />
     <Content Include="Scripts\jquery-1.9.1.min.js" />
     <Content Include="ShoppingCart\cartItems.directive.html" />
     <Content Include="ShoppingCart\cartItems.directive.js" />
     <Content Include="ShoppingCart\categories.directive.html" />
     <Content Include="ShoppingCart\categories.directive.js" />
+    <Content Include="ShoppingCart\delivery.directive.html" />
+    <Content Include="ShoppingCart\delivery.directive.js" />
     <Content Include="ShoppingCart\newOrder.html" />
     <Content Include="ShoppingCart\productDetails.html" />
     <Content Include="ShoppingCart\purchaseSummary.directive.html" />

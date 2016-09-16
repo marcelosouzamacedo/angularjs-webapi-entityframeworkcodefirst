@@ -11,7 +11,12 @@
         var vm = this;
 
         vm.categories = [];
+        vm.deliveryAddress = "";
+        vm.deliveryDate = null;
+        vm.deliveryOption = "";
         vm.disableSubCategories = disableSubCategories;
+        vm.getMinDateForDelivery = getMinDateForDelivery;
+        vm.isValidToCheckOut = isValidToCheckOut;
         vm.products = [];
         vm.removeFromCart = removeFromCart;
         vm.selectedCategory = {};
@@ -30,6 +35,25 @@
 
         function disableSubCategories() {
             return vm.selectedCategory == null || typeof (vm.selectedCategory) == "undefined" || !vm.selectedCategory.Id;
+        }
+
+        function getMinDateForDelivery() {
+            var now = new Date();
+            var month = (now.getMonth() + 1);
+            var day = now.getDate();
+            if (month < 10)
+                month = "0" + month;
+            if (day < 10)
+                day = "0" + day;
+            var today = now.getFullYear() + '-' + month + '-' + day;
+            return today;
+        }
+
+        function isValidToCheckOut() {
+            return vm.shoppingCart.length > 0 &&
+                vm.deliveryDate != null &&
+                vm.deliveryDate !== "" &&
+                ((vm.deliveryOption === "home" && vm.deliveryAddress !== "") || (vm.deliveryOption === "site"));
         }
 
         function listCategories() {

@@ -1,0 +1,26 @@
+﻿<div class="panel panel-info showcase">
+    <div class="panel-heading">
+        <h3 class="panel-title">Entrega</h3>
+    </div>
+    <div class="panel-body">
+        <div class="form-group">
+            <label for="deliveryOptionInput">Opção de Entrega</label>
+            <select class="form-control" id="deliveryOptionInput" ng-model="cart.deliveryOption">
+                <option value="">Selecione uma Opção</option>
+                <option value="site">No Local</option>
+                <option value="home">Em Domicílio</option>
+            </select>
+        </div>
+        <div class="form-group" ng-show="cart.deliveryOption">
+            <label for="deliveryDateInput">Data de Entrega</label>
+            <input type="date" class="form-control" id="deliveryDateInput" min="{{cart.getMinDateForDelivery()}}" ng-model="cart.deliveryDate" />
+        </div>
+        <div class="form-group" ng-show="cart.deliveryOption == 'home'">
+            <label for="deliveryAddressInput">Endereço de Entrega</label>
+            <input type="text" class="form-control" min="new Date()" id="deliveryAddressInput" ng-model="cart.deliveryAddress" />
+        </div>
+        <div class="form-group" ng-show="cart.deliveryOption">
+            <button type="button" ng-disabled="!cart.isValidToCheckOut()" class="btn btn-primary btn-lg" style="width: 100%">Finalizar Compra</button>
+        </div>
+    </div>
+</div>

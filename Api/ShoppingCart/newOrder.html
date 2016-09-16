@@ -16,6 +16,7 @@
     <script src="showcase.directive.js"></script>
     <script src="cartItems.directive.js"></script>
     <script src="purchaseSummary.directive.js"></script>
+    <script src="delivery.directive.js"></script>
 
     <meta charset="utf-8" />
 </head>
@@ -51,6 +52,9 @@
             <div class="row" ng-show="cart.shoppingCart.length > 0">
                 <div class="col-md-6">
                     <purchase-summary></purchase-summary>
+                </div>
+                <div class="col-md-6">
+                    <delivery></delivery>
                 </div>
             </div>
         </div>
